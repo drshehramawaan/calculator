@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+  <div id="calculator">
+    <input type="text" id="result" readonly>
+    <table>
+      <tr>
+        <td><button onclick="display('7')">7</button></td>
+        <td><button onclick="display('8')">8</button></td>
+        <td><button onclick="display('9')">9</button></td>
+        <td><button onclick="display('/')">/</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="display('4')">4</button></td>
+        <td><button onclick="display('5')">5</button></td>
+        <td><button onclick="display('6')">6</button></td>
+        <td><button onclick="display('*')">*</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="display('1')">1</button></td>
+        <td><button onclick="display('2')">2</button></td>
+        <td><button onclick="display('3')">3</button></td>
+        <td><button onclick="display('-')">-</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="display('0')">0</button></td>
+        <td><button onclick="display('.')">.</button></td>
+        <td><button onclick="clearScreen()">C</button></td>
+        <td><button onclick="calculate()">=</button></td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    function display(value) {
+      document.getElementById("result").value += value;
+    }
+
+    function clearScreen() {
+      document.getElementById("result").value = "";
+    }
+
+    function calculate() {
+      var expression = document.getElementById("result").value;
+      var result = eval(expression);
+      document.getElementById("result").value = result;
+    }
+  </script>
+</body>
+</html>
